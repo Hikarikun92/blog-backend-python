@@ -26,7 +26,7 @@ class TestFacade(TestCase):
         facade = Facade(service)
 
         dtos: list[UserReadDto] = facade.find_all()
-        self.assertEqual(len(dtos), len(entities))
+        self.assertEqual(len(entities), len(dtos))
 
         for index, entity in enumerate(entities):
-            self.assertEqual(dtos[index], to_read_dto(entity))
+            self.assertEqual(to_read_dto(entity), dtos[index])

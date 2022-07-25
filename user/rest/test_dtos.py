@@ -9,8 +9,8 @@ class TestDtos(TestCase):
         entity = User(3, 'Some user')
         dto = to_read_dto(entity)
 
-        self.assertEqual(dto.id, entity.id)
-        self.assertEqual(dto.username, entity.username)
+        self.assertEqual(entity.id, dto.id)
+        self.assertEqual(entity.username, dto.username)
 
 
 if __name__ == '__main__':
