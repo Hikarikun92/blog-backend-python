@@ -1,4 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.schema import Column
+from sqlalchemy.sql.sqltypes import Integer, String
 
 db = SQLAlchemy()
 
@@ -6,8 +8,8 @@ db = SQLAlchemy()
 class UserModel(db.Model):
     __tablename__ = "user"
 
-    id = db.Column(db.Integer(), primary_key=True)
-    username = db.Column(db.String(), nullable=False)
+    id = Column(Integer(), primary_key=True)
+    username = Column(String(), nullable=False)
 
     def __init__(self, id: int | None, username: str):
         self.id = id
