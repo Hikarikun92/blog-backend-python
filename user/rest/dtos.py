@@ -1,3 +1,5 @@
+from typing import Any
+
 from user.models import User
 
 
@@ -11,6 +13,9 @@ class UserReadDto:
             return False
 
         return self.id == other.id and self.username == other.username
+
+    def to_json(self) -> dict[str, Any]:
+        return {'id': self.id, 'username': self.username}
 
 
 def to_read_dto(user: User) -> UserReadDto:

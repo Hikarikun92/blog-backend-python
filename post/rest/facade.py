@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from comment.rest.dtos import CommentReadDto
 from post.models import Post
 from post.rest.dtos import PostByUserDto, PostByIdDto, CreatePostDto
@@ -49,6 +51,6 @@ class Facade:
         return PostByIdDto(post.id, post.title, post.body, datetime_to_iso(post.published_date), user, comments)
 
     def create(self, dto: CreatePostDto, user_id: int) -> int:
-        #Note: we can set some of these fields to None, they won't be used by the creation method
-        post:Post = Post(None, dto.title, dto.body, None, User(user_id, None))
+        # Note: we can set some of these fields to None, they won't be used by the creation method
+        post: Post = Post(None, dto.title, dto.body, datetime.now(), User(user_id, None))
         return self.service.create(post)

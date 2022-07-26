@@ -1,6 +1,5 @@
+from database import UserModel
 from user.models import User, Credentials
-
-from user.repository.models import UserModel
 
 
 class Repository:
